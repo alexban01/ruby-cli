@@ -1,6 +1,6 @@
 #!/sur/bin/ruby
 
-require './lib/cli'
+require './lib/search'
 
-result = Program.new.search(ARGV[1])
+result = Search.new.search(ARGV[1])
 
