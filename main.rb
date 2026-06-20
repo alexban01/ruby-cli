@@ -1,7 +1,8 @@
 #!/usr/bin/ruby
 
-require './lib/show'
+require './lib/command_factory'
 
-exit_code = Show.new($stdout).execute(*ARGV)
+
+exit_code = CommandFactory.create($stdout, ARGV).execute(*ARGV[1..])
 
 exit exit_code
