@@ -2,6 +2,6 @@
 
 require './lib/show'
 
-result = Show.new.show(ARGV[1])
+result = Show.new.show(ARGV)
 
-exit result
+exit result.exit_code

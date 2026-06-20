@@ -1,12 +1,11 @@
 require 'json'
 require 'faraday'
 require 'pry'
-require './lib/gems'
+require './lib/program_result'
 
 class Show
-
-  def initialize()
-    # @client = client
+  def initialize(client)
+    @client = client
   end
 
   def fetch_data(url)
@@ -25,9 +24,18 @@ class Show
     puts
   end
 
-  def show(gem_name)
-    gem = fetch_data("https://rubygems.org/api/v1/gems/#{gem_name}.json")
-    print_info(gem)
-    0
+  def show2(args)
+    gem_name = args[1]
+
+    gem_data = @client.gem(gem_name)
+
+    exit_code = 0
+    ProgramResult.new(gem_data.name, gem_data.info, exit_code)
   end
+
+  # def show(gem_name)
+  #   gem = fetch_data("https://rubygems.org/api/v1/gems/#{gem_name}.json")
+  #   print_info(gem)
+  #   0
+  # end
 end
