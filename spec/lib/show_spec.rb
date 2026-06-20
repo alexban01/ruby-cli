@@ -2,8 +2,8 @@ require './lib/show'
 require 'pry'
 
 RSpec.describe 'Show' do
-  describe '#show' do
-    subject(':show') { Show.new.show(args) }
+  describe '#execute' do
+    subject(':show') { Show.new.execute(args) }
     let(:args) { 'rails_event_store-rspec' }
 
     context "when gem exists" do
