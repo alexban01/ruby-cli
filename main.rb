@@ -2,6 +2,6 @@
 
 require './lib/show'
 
-result = Show.new.show(ARGV)
+exit_code = Show.new($stdout).execute(*ARGV)
 
-exit result.exit_code
+exit exit_code

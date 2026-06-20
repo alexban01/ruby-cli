@@ -4,6 +4,10 @@ require 'pry'
 require './lib/program_result'
 
 class Show
+  def initialize(printer)
+    @printer = printer
+  end
+
   def execute(gem_name)
     gem = fetch_data("https://rubygems.org/api/v1/gems/#{gem_name}.json")
     print_info(gem)
@@ -18,13 +22,13 @@ class Show
     end
 
     def print_info(gem)
-      puts "--------Name: #{gem['name']} --------"
-      puts "Version: #{gem['version']}"
-      puts "Authors: #{gem['authors']}"
-      puts "Info: #{gem['info']}"
-      puts "Homepage: #{gem['homepage_uri']}"
-      puts "Downloads: #{gem['downloads']}"
-      puts "---------------------------------------"
-      puts
+      @printer.puts "--------Name: #{gem['name']} --------"
+      @printer.puts "Version: #{gem['version']}"
+      @printer.puts "Authors: #{gem['authors']}"
+      @printer.puts "Info: #{gem['info']}"
+      @printer.puts "Homepage: #{gem['homepage_uri']}"
+      @printer.puts "Downloads: #{gem['downloads']}"
+      @printer.puts "---------------------------------------"
+      @printer.puts
     end
 end
