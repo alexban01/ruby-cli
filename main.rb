@@ -1,7 +1,7 @@
-#!/sur/bin/ruby
+#!/usr/bin/ruby
 
-require './lib/search'
+require './lib/show'
 
-result = Search.new.search(ARGV[1])
+result = Show.new.show(ARGV[1])
 
-exit 0
+exit result

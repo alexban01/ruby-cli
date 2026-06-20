@@ -3,7 +3,7 @@ require 'faraday'
 require 'pry'
 require './lib/gems'
 
-class Search
+class Show
 
   def initialize()
     # @client = client
@@ -25,15 +25,9 @@ class Search
     puts
   end
 
-  def search(gem_name)
-    gems = fetch_data("https://rubygems.org/api/v1/search.json?query=#{gem_name}")
-    if gems == []
-      return Gems.new(gems,1)
-    end
-
-    for gem in gems do
-      print_info(gem)
-    end
-    Gems.new(gems,0)
+  def show(gem_name)
+    gem = fetch_data("https://rubygems.org/api/v1/gems/#{gem_name}.json")
+    print_info(gem)
+    0
   end
 end
