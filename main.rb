@@ -4,3 +4,4 @@ require './lib/search'
 
 result = Search.new.search(ARGV[1])
 
+exit 0
