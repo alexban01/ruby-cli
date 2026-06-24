@@ -21,7 +21,6 @@ Version: 2.0.1
 Authors: Arkency
 Info: RSpec matchers for RailsEventStore
 Homepage: https://railseventstore.org/
-Downloads: 770515
 ---------------------------------------
 
 ")
