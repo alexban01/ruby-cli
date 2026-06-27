@@ -1,6 +1,7 @@
 
 require './lib/noop'
 require './lib/show'
+require './lib/search'
 
 class CommandFactory
   class << self
@@ -8,6 +9,8 @@ class CommandFactory
       case args[0]
       when "show"
         Show.new(printer)
+      when "search"
+        Search.new(printer)
       else
         Noop.new(printer)
       end
